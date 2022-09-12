@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/santeh-react-app/static/css/main.b3992b10.css",
+    "main.js": "/santeh-react-app/static/js/main.41ae43f7.js",
+    "static/media/about.jpeg": "/santeh-react-app/static/media/about.053cc83bde5a8c1f983e.jpeg",
+    "index.html": "/santeh-react-app/index.html",
+    "main.b3992b10.css.map": "/santeh-react-app/static/css/main.b3992b10.css.map",
+    "main.41ae43f7.js.map": "/santeh-react-app/static/js/main.41ae43f7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b3992b10.css",
+    "static/js/main.41ae43f7.js"
+  ]
+}
