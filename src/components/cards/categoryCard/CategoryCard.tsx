@@ -41,14 +41,16 @@ const CategoryCard:FC<ICategoryCard> = ({category, dashboard}) => {
 
     return (
         <Card
-            onClick={handleClick}
+            // onClick={handleClick}
             className={styles.shadow__card}
             style={{ width: 300, padding:'3px', border:'1px solid #d9d9d9', cursor:'pointer' }}
             actions={dashboard?[
                 <ArrowUpOutlined style={{color:"#18d94b"}} onClick={openPage} key="ellipsis"/>,
                 <EditOutlined style={{color:"#2b5ffc"}} onClick={editClick} key="edit" />,
 
-            ]:[]}
+            ]:[
+                <ArrowUpOutlined style={{color:"#18d94b"}} onClick={handleClick} key="ellipsis"/>
+            ]}
             cover={
             category.image?
                 <Image

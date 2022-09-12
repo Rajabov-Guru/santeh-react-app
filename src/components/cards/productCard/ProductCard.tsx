@@ -32,10 +32,10 @@ const ProductCard:FC<IProductCard> = ({product,dashboard,deleteHandler}) => {
     }
 
     return (
-        <div onClick={handleClick} className={styles.product__card}>
+        <div className={styles.product__card}>
             {product?.image?<Image onClick={e=>e.stopPropagation()} width={200} src={`${process.env.REACT_APP_API_URL}${product?.image}`}/>:
             <FailImage/>}
-            <div className={styles.card__inner}>
+            <div onClick={handleClick} className={styles.card__inner}>
                 <div className={styles.card__title}>
                     {product?.name}
                 </div>
