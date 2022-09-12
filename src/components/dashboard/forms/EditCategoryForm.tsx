@@ -1,18 +1,19 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
-import {Button, Form, Input, message, Typography, Upload, UploadFile, UploadProps} from "antd";
+import {useNavigate, useParams} from "react-router-dom";
+import {Button, Form, Input, message, PageHeader, Typography, Upload, UploadFile, UploadProps} from "antd";
 import {Context} from "../../../index";
 import {ICategory} from "../../../types/mainTypes";
 import {RcFile} from "antd/es/upload";
 import Loading from "../../common/Loading";
 import {Content, Header} from "antd/es/layout/layout";
 import {headerStyles} from "../CategoriesContent";
-import {PlusOutlined} from "@ant-design/icons";
+import {LeftOutlined, PlusOutlined} from "@ant-design/icons";
 import {observer} from "mobx-react-lite";
 
 const {Title} = Typography;
 
 const EditCategoryForm = () => {
+    const router = useNavigate();
     const {id} = useParams();
     const [form] = Form.useForm();
     const {dashboard} = useContext(Context);
@@ -67,7 +68,13 @@ const EditCategoryForm = () => {
     return (
         <>
             <Header className="site-layout-background" style={headerStyles}>
-                {"Редактирование категории"}
+                <PageHeader
+                    backIcon={<LeftOutlined style={{color:'white'}}/>}
+                    className="site-page-header"
+                    onBack={() => router(-1)}
+                    title={<div style={{color:'white'}}>{`Редактирование: ${category?.name}`}</div>}
+
+                />
             </Header>
             <Content style={{overflow: 'initial', backgroundColor:'white'}}>
                 {dashboard.isLoading?<Loading/>:

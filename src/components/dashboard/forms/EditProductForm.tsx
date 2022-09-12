@@ -6,7 +6,7 @@ import {
     Button,
     Form,
     Input,
-    message,
+    message, PageHeader,
     TreeSelect,
     TreeSelectProps,
     Typography,
@@ -14,13 +14,13 @@ import {
     UploadFile,
     UploadProps
 } from "antd";
-import {PlusOutlined} from "@ant-design/icons";
+import {LeftOutlined, PlusOutlined} from "@ant-design/icons";
 import AddPropertyForm from "./AddPropertyForm";
 import {Context} from "../../../index";
 import {DefaultOptionType} from "antd/es/select";
 import {observer} from "mobx-react-lite";
 import {RcFile} from "antd/es/upload";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {ICategory, IPotentialProperty, IProduct, IProperty} from "../../../types/mainTypes";
 import CategoryService from "../../../services/CategoryService";
 import {genNode} from "./AddProductForm";
@@ -30,6 +30,7 @@ const {Title} = Typography;
 const { TextArea } = Input;
 
 const EditProductForm = () => {
+    const router= useNavigate();
     const {id} = useParams();
     const [form] = Form.useForm();
     const {dashboard} = useContext(Context);
@@ -132,7 +133,13 @@ const EditProductForm = () => {
     return (
         <>
             <Header className="site-layout-background" style={headerStyles}>
-                {"Добавление товара"}
+                <PageHeader
+                    backIcon={<LeftOutlined style={{color:'white'}}/>}
+                    className="site-page-header"
+                    onBack={() => router(-1)}
+                    title={<div style={{color:'white'}}>{`Редактирование: ${product?.name}`}</div>}
+
+                />
             </Header>
             <Content style={{overflow: 'initial', backgroundColor:'white'}}>
                 {dashboard.isLoading?<Loading/>:

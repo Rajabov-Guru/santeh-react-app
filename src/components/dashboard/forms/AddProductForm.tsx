@@ -8,13 +8,13 @@ import {
     Form,
     Input,
     message,
-    Modal,
+    Modal, PageHeader,
     TreeSelect,
     TreeSelectProps,
     Typography,
     Upload
 } from "antd";
-import {PlusOutlined} from "@ant-design/icons";
+import {LeftOutlined, PlusOutlined} from "@ant-design/icons";
 import {Context} from "../../../index";
 import {observer} from "mobx-react-lite";
 import {RcFile} from "antd/es/upload";
@@ -23,6 +23,7 @@ import {ICategory, IProperty} from "../../../types/mainTypes";
 import CategoryService from "../../../services/CategoryService";
 import useModal from "../../../hooks/useModal";
 import AddPropertyForm from "./AddPropertyForm";
+import {useNavigate} from "react-router-dom";
 
 const {Title} = Typography;
 const { TextArea } = Input;
@@ -39,6 +40,7 @@ export const genNode = (category:ICategory) => {
 
 
 const AddProductForm = () => {
+    const router = useNavigate();
     const [form] = Form.useForm();
     const {dashboard} = useContext(Context);
 
@@ -121,7 +123,13 @@ const AddProductForm = () => {
     return (
         <>
             <Header className="site-layout-background" style={headerStyles}>
-                {"Добавление товара"}
+                <PageHeader
+                    backIcon={<LeftOutlined style={{color:'white'}}/>}
+                    className="site-page-header"
+                    onBack={() => router(-1)}
+                    title={<div style={{color:'white'}}>{"Товар"}</div>}
+
+                />
             </Header>
             <Content style={{overflow: 'initial', backgroundColor:'white'}}>
                 {dashboard.isLoading?<Loading/>:
