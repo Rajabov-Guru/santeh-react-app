@@ -7,8 +7,9 @@ import Search from "antd/es/input/Search";
 import styles from "../common/header/header.module.css";
 import {useNavigate, useParams} from "react-router-dom";
 import Loading from "../common/Loading";
-import {Button} from "antd";
+import {Button, Divider, PageHeader} from "antd";
 import {paths} from "../../routing/routes";
+import {LeftOutlined} from "@ant-design/icons";
 
 export const headerStyles:CSSProperties={
     paddingLeft: 20,
@@ -24,6 +25,7 @@ const CategoriesContent = () => {
     const {dashboard} = useContext(Context);
 
     useEffect(()=>{
+        dashboard.setDashboardContentIndex(paths.DASHBOARD_CATEGORIES);
         dashboard.setCategories([]);
         fetchCategories();
     },[id])
@@ -46,7 +48,13 @@ const CategoriesContent = () => {
     return (
         <>
             <Header className="site-layout-background" style={headerStyles}>
-                {"Категории товаров"}
+                <PageHeader
+                    backIcon={<LeftOutlined style={{color:'white'}}/>}
+                    className="site-page-header"
+                    onBack={() => router(-1)}
+                    title={<div style={{color:'white'}}>{dashboard.currentCategory?.name || "Категории"}</div>}
+
+                />
                 <Search
                     className={styles.search}
                     placeholder="Введите текст для поиска...."
@@ -61,9 +69,13 @@ const CategoriesContent = () => {
             </Header>
             <Content style={{overflow: 'initial', backgroundColor:'white'}}>
                 <div style={{padding: 40}}>
-                    {id && "Id HERE"}
                     {dashboard.isLoading?<Loading/>:
-                        <CardList dashboard isProductList={false} categories={dashboard.categories}/>
+                        <>
+                            {!(dashboard.categories.length>0) &&
+                                <Divider>Здесь пока ничего нет</Divider>
+                            }
+                            <CardList dashboard isProductList={false} categories={dashboard.categories}/>
+                        </>
                     }
                 </div>
             </Content>

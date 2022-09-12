@@ -6,16 +6,18 @@ import CardList from "../cards/CardList";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
 import {headerStyles} from "./CategoriesContent";
-import {Button} from "antd";
+import {Button, PageHeader} from "antd";
 import {useNavigate} from "react-router-dom";
 import {paths} from "../../routing/routes";
 import Loading from "../common/Loading";
+import {LeftOutlined} from "@ant-design/icons";
 
 const ProductsContent = () => {
     const router = useNavigate();
     const {dashboard} = useContext(Context);
 
     useEffect(()=>{
+        dashboard.setDashboardContentIndex(paths.DASHBOARD_PRODUCTS);
         fetchCategories();
     },[])
 
@@ -30,7 +32,13 @@ const ProductsContent = () => {
     return (
         <>
             <Header className="site-layout-background" style={headerStyles}>
-                {"Товары"}
+                <PageHeader
+                    backIcon={<LeftOutlined style={{color:'white'}}/>}
+                    className="site-page-header"
+                    onBack={() => router(-1)}
+                    title={<div style={{color:'white'}}>{"Товары"}</div>}
+
+                />
                 <Search
                     className={styles.search}
                     placeholder="Введите текст для поиска...."

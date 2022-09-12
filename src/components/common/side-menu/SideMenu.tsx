@@ -57,6 +57,7 @@ const SideMenu = () => {
                 onClick={onClick}
                 style={{ width: '100%'}}
                 defaultSelectedKeys={[mainStore.selectedMenuItem]}
+                selectedKeys={[mainStore.selectedMenuItem]}
                 mode="horizontal"
                 theme="light"
                 items={items}

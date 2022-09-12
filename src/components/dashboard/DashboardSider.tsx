@@ -48,7 +48,13 @@ const DashboardSider = () => {
     return (
         <Sider style={siderStyles}>
             <div className="logo">SANTEH PROFESSIONAL</div>
-            <Menu onClick={clickHandler} theme="dark" mode="inline" defaultSelectedKeys={[`${dashboard.dashboardContentIndex}`]} items={items} />
+            <Menu
+                onClick={clickHandler}
+                theme="dark"
+                mode="inline"
+                defaultSelectedKeys={[`${dashboard.dashboardContentIndex}`]}
+                selectedKeys={[dashboard.dashboardContentIndex]}
+                items={items} />
         </Sider>
     );
 };

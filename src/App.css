@@ -205,4 +205,8 @@ h6 {
     padding: 0;
 }
 
+.site-page-header>*{
+    color: white;
+}
+
 
