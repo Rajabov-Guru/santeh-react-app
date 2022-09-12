@@ -3,8 +3,7 @@ import useModal from "../../../hooks/useModal";
 import {AutoComplete, Button, Card, Col, Divider, Input, Modal, Row, Space} from "antd";
 import {Context} from "../../../index";
 import {observer} from "mobx-react-lite";
-import {IKey, IPotentialProperty, IProperty} from "../../../types/mainTypes";
-import {values} from "mobx";
+import {IKey, IPotentialProperty} from "../../../types/mainTypes";
 
 interface IOption{
     value:string;

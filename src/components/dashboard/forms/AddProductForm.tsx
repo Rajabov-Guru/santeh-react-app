@@ -1,14 +1,13 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState} from 'react';
 import {Content, Header} from "antd/es/layout/layout";
 import {headerStyles} from "../CategoriesContent";
 import Loading from "../../common/Loading";
 import {
     Button,
-    Divider,
     Form,
     Input,
     message,
-    Modal, PageHeader,
+    PageHeader,
     TreeSelect,
     TreeSelectProps,
     Typography,
@@ -21,7 +20,6 @@ import {RcFile} from "antd/es/upload";
 import type { DefaultOptionType } from 'antd/es/select';
 import {ICategory, IProperty} from "../../../types/mainTypes";
 import CategoryService from "../../../services/CategoryService";
-import useModal from "../../../hooks/useModal";
 import AddPropertyForm from "./AddPropertyForm";
 import {useNavigate} from "react-router-dom";
 
@@ -136,7 +134,6 @@ const AddProductForm = () => {
                 {dashboard.isLoading?<Loading/>:
                     <div className={'form__wrapper'}>
 
-
                         <Form form={form} size={"large"} layout={'vertical'} name="basic" onFinish={onFinish}  autoComplete="off">
                             <Title>{`Добавить товар`}</Title>
                             <Form.Item
@@ -187,7 +184,6 @@ const AddProductForm = () => {
                                 <TextArea onChange={e=>setDescription(e.target.value)} value={description} rows={4}/>
                             </Form.Item>
 
-
                             <Form.Item label="Картинка" valuePropName="fileList" >
                                 <Upload listType="picture-card" beforeUpload={selectFile}>
                                     <div>
@@ -202,8 +198,6 @@ const AddProductForm = () => {
                             <Form.Item>
                                 <Button loading={dashboard.isLoading} type="primary" htmlType="submit">Сохранить</Button>
                             </Form.Item>
-
-
 
                         </Form>
                     </div>

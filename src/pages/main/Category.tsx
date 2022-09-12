@@ -8,7 +8,7 @@ import {ICategory} from "../../types/mainTypes";
 import CategoryService from "../../services/CategoryService";
 import {useNavigate, useParams} from "react-router-dom";
 import Loading from "../../components/common/Loading";
-import {Button, Divider, PageHeader} from "antd";
+import { Divider, PageHeader} from "antd";
 
 const Category = () => {
     const router = useNavigate();
@@ -51,7 +51,6 @@ const Category = () => {
                         title={category?.name}
                         subTitle="подкатегории и товары"
                     />
-                    {/*<h1 className={'page__title'}>{category?.name}</h1>*/}
                     <div className={'content-area'}>
                         {mainStore.isLoading?<Loading/>:
                             <div className={'item__wrapper'}>

@@ -1,7 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import Layout from "../../components/common/Layout";
 import CardList from "../../components/cards/CardList";
-import CategoryCard from "../../components/cards/categoryCard/CategoryCard";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
 import Loading from "../../components/common/Loading";

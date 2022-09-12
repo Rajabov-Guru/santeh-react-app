@@ -15,13 +15,12 @@ import {
     UploadProps
 } from "antd";
 import {LeftOutlined, PlusOutlined} from "@ant-design/icons";
-import AddPropertyForm from "./AddPropertyForm";
 import {Context} from "../../../index";
 import {DefaultOptionType} from "antd/es/select";
 import {observer} from "mobx-react-lite";
 import {RcFile} from "antd/es/upload";
 import {useNavigate, useParams} from "react-router-dom";
-import {ICategory, IPotentialProperty, IProduct, IProperty} from "../../../types/mainTypes";
+import {ICategory, IProduct, IProperty} from "../../../types/mainTypes";
 import CategoryService from "../../../services/CategoryService";
 import {genNode} from "./AddProductForm";
 import EditPropertyForm from "./EditPropertyForm";
