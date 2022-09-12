@@ -140,7 +140,12 @@ h6 {
 }
 
 .content-area{
-    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.centered{
+    margin: 0 auto;
 }
 
 .card-meta{

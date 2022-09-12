@@ -104,6 +104,7 @@ const AddProductForm = () => {
 
 
     function reset(){
+        dashboard.setPotentialProperties([]);
         form.resetFields();
         setCategoryId('');
         setName('');
