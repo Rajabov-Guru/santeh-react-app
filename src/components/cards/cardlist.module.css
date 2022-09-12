@@ -1,0 +1,24 @@
+.item__list{
+    display: flex;
+    /*justify-content: center;*/
+    grid-gap: 20px;
+    /*grid-template-columns: repeat(auto-fill, 250px);*/
+    flex-wrap: wrap;
+}
+
+@media(max-width: 810px) {
+    .item__list{
+        justify-content: center;
+    }
+}
+
+.item__list_column{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
+
+}
+
+.centered{
+    align-items: center;
+}

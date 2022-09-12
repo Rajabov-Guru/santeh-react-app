@@ -1,19 +1,24 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import MainStore from "./store/MainStore";
+import DashboardStore from "./store/DashboardStore";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const mainStore = new MainStore();
+const dashboard = new DashboardStore();
+
+export const Context = createContext({
+    mainStore,
+    dashboard
+});
+
+
+root.render(
+    <Context.Provider value={{mainStore, dashboard}}>
+        <App />
+    </Context.Provider>
+);

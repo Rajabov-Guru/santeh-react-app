@@ -1,0 +1,17 @@
+.sider__inline{
+    height: max-content;
+}
+
+.sider__horiz{
+    display: none;
+}
+
+@media(max-width: 767px){
+    .sider__horiz{
+        display: block;
+    }
+
+    .sider__inline{
+        display: none;
+    }
+}
