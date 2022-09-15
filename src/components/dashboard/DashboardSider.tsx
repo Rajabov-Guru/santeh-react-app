@@ -5,6 +5,7 @@ import {Context} from "../../index";
 import {AppstoreOutlined, CloseCircleOutlined, ShopOutlined} from "@ant-design/icons";
 import {observer} from "mobx-react-lite";
 import {useNavigate} from "react-router-dom";
+import {paths} from "../../routing/routes";
 
 const items = [
     {
@@ -37,9 +38,10 @@ const DashboardSider = () => {
     const {dashboard} = useContext(Context);
     const router = useNavigate();
 
-    const clickHandler: MenuProps['onClick'] = e => {
+    const clickHandler: MenuProps['onClick'] = async (e) => {
         if(e.key==="3"){
-            console.log("Logout");
+            await dashboard.logout();
+            router(paths.MAIN_ROUTE);
             return;
         }
         dashboard.setDashboardContentIndex(e.key);

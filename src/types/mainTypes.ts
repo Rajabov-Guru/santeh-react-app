@@ -1,3 +1,9 @@
+export interface IAdmin{
+    id?:number;
+    login:string;
+    password:string;
+}
+
 export interface IProperty{
     id?: number;
     value: string;

@@ -55,14 +55,14 @@ const CategoriesContent = () => {
                     title={<div style={{color:'white'}}>{dashboard.currentCategory?.name || "Категории"}</div>}
 
                 />
-                <Search
-                    className={styles.search}
-                    placeholder="Введите текст для поиска...."
-                    allowClear
-                    enterButton="Поиск"
-                    size="large"
-                    onSearch={()=>console.log('on search')}
-                />
+                {/*<Search*/}
+                {/*    className={styles.search}*/}
+                {/*    placeholder="Введите текст для поиска...."*/}
+                {/*    allowClear*/}
+                {/*    enterButton="Поиск"*/}
+                {/*    size="large"*/}
+                {/*    onSearch={()=>console.log('on search')}*/}
+                {/*/>*/}
                 <Button
                     onClick={clickHandler}
                     type="primary">{id?"Добавить подкатегорию":"Добавить категорию"}</Button>

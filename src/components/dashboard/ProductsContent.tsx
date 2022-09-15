@@ -39,14 +39,14 @@ const ProductsContent = () => {
                     title={<div style={{color:'white'}}>{"Товары"}</div>}
 
                 />
-                <Search
-                    className={styles.search}
-                    placeholder="Введите текст для поиска...."
-                    allowClear
-                    enterButton="Поиск"
-                    size="large"
-                    onSearch={()=>console.log('on search')}
-                />
+                {/*<Search*/}
+                {/*    className={styles.search}*/}
+                {/*    placeholder="Введите текст для поиска...."*/}
+                {/*    allowClear*/}
+                {/*    enterButton="Поиск"*/}
+                {/*    size="large"*/}
+                {/*    onSearch={()=>console.log('on search')}*/}
+                {/*/>*/}
                 <Button onClick={()=>router(paths.DASHBOARD_ADD_PRODUCTS)} type="primary">Добавить товар</Button>
             </Header>
             <Content style={{overflow: 'initial', backgroundColor:'white'}}>

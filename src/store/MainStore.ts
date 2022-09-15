@@ -16,9 +16,13 @@ export default class MainStore {
     selectedMenuItem:string = '0';
     selectedNavbarItem:string = '/';
 
+
+
     constructor() {
         makeAutoObservable(this);
     }
+
+
 
     setSelectedMenuItem(value:string | number){
         this.selectedMenuItem = value.toString();
@@ -50,6 +54,30 @@ export default class MainStore {
 
     setProducts(value:IProduct[]){
         this.products = value;
+    }
+
+    async getAllCategories(){
+        this.setLoading(true);
+        try {
+            const response = await CategoryService.getAll();
+            this.setCategories(response.data);
+        }catch (e){
+            console.log(e)
+        }finally {
+            this.setLoading(false);
+        }
+    }
+
+    async getAllProducts(){
+        this.setLoading(true);
+        try {
+            const response = await ProductService.getAll();
+            this.setProducts(response.data);
+        }catch (e){
+            console.log(e)
+        }finally {
+            this.setLoading(false);
+        }
     }
 
 

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import styles from "./navbar.module.css";
-import {Link, Navigate, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {navigates} from "../../../routing/routes";
 
 

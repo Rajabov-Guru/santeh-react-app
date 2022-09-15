@@ -1,4 +1,6 @@
 const SERVER_API = {
+    AUTH:'/auth',
+    LOGIN:'/auth/login',
     ADMIN: '/admin',
     CATEGORIES: '/categories',
     PRODUCTS:'/products',

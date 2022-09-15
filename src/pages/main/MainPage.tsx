@@ -23,7 +23,7 @@ const MainPage = () => {
         <Layout>
             <div className={'content-inner'}>
                 <div className={'content-block'}>
-                    <h1 className={'page__title'}>Популярные категории товаров</h1>
+                    <h1 className={'page__title'}>Популярное</h1>
                     <div className={'content-area centered'}>
                         {mainStore.isLoading?<Loading/>:
                             <CardList isProductList={false} categories={mainStore.categories}/>

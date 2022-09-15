@@ -1,11 +1,15 @@
 import {makeAutoObservable} from "mobx";
-import {ICategory, IKey, IPotentialProperty, IProduct, IProperty} from "../types/mainTypes";
+import {IAdmin, ICategory, IKey, IPotentialProperty, IProduct, IProperty} from "../types/mainTypes";
 import CategoryService from "../services/CategoryService";
 import ProductService from "../services/ProductService";
 import PropertyService from "../services/PropertyService";
 import {paths} from "../routing/routes";
+import AuthService from "../services/AuthService";
 
 export default class DashboardStore {
+    token:string | null = null;
+    isAuth:boolean = false;
+
     categories:ICategory[] = [];
     products:IProduct[] = [];
     properties:IProperty[] = [];
@@ -18,8 +22,22 @@ export default class DashboardStore {
 
     dashboardContentIndex:string = paths.DASHBOARD_CATEGORIES;
 
+    searchText:string='';
+
     constructor() {
         makeAutoObservable(this);
+    }
+
+    setSearchText(text:string){
+        this.searchText = text;
+    }
+
+    setIsAuth(value:boolean){
+        this.isAuth = value;
+    }
+
+    setToken(value:string | null){
+        this.token=value;
     }
 
     setCurrentCategory(value:ICategory | null){
@@ -63,6 +81,33 @@ export default class DashboardStore {
 
     deletePotentialProperty(item:IPotentialProperty){
         this.potentialProperties = this.potentialProperties.filter(x=>x.keyId!==item.keyId && x.value!==item.value);
+    }
+
+
+    async login(data:IAdmin){
+        this.setLoading(true);
+        try {
+            const response = await AuthService.login(data);
+            this.setToken(response.data.token);
+            this.setIsAuth(true);
+            return response.data;
+        }catch (e){
+            console.log(e)
+        }finally {
+            this.setLoading(false);
+        }
+    }
+
+    async logout(){
+        this.setLoading(true);
+        try {
+            this.setToken(null);
+            this.setIsAuth(false);
+        }catch (e){
+            console.log(e)
+        }finally {
+            this.setLoading(false);
+        }
     }
 
     async getHighLevelCategories(){

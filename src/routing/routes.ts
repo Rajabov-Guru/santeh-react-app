@@ -13,6 +13,8 @@ import AddCategory from "../pages/dashboard/AddCategory";
 import AddProduct from "../pages/dashboard/AddProduct";
 import EditCategory from "../pages/dashboard/EditCategory";
 import EditProduct from "../pages/dashboard/EditProduct";
+import Login from "../pages/dashboard/Login";
+import SearchResult from "../pages/SearchResult";
 
 export const paths = {
     MAIN_ROUTE : '/',
@@ -24,7 +26,9 @@ export const paths = {
     CATEGORY_ROUTE : '/categories/:id',
     PRODUCTS_ROUTE  : '/products',
     PRODUCT_PAGE:'/products/:id',
+    SEARCH_RESULT:'/search/:query',
     DASHBOARD:'/dashboard',
+    DASHBOARD_LOGIN:'/dashboard/login',
     DASHBOARD_CATEGORIES:'/dashboard/categories',
     DASHBOARD_ADD_CATEGORIES:'/dashboard/categories/add',
     DASHBOARD_EDIT_CATEGORIES:'/dashboard/categories/edit/:id',
@@ -68,6 +72,14 @@ export const routes = [
     {
         path:paths.PRODUCT_PAGE,
         Component:ProductPage
+    },
+    {
+        path:paths.SEARCH_RESULT,
+        Component:SearchResult
+    },
+    {
+        path: paths.DASHBOARD_LOGIN,
+        Component:Login
     },
     {
         path:paths.DASHBOARD_CATEGORIES,
@@ -116,11 +128,11 @@ export const navigates = [
         label:'О компании',
         code:2
     },
-    {
-        path:paths.CONTACTS,
-        label:'Контакты',
-        code:3
-    },
+    // {
+    //     path:paths.CONTACTS,
+    //     label:'Контакты',
+    //     code:3
+    // },
     {
         path:paths.MONTAGE,
         label:'Монтаж',
