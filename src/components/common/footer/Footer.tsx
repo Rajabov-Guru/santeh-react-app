@@ -16,8 +16,8 @@ const Footer = () => {
                             labelStyle={{color:'white', fontSize:'18px'}} size={'middle'}>
                             <Descriptions.Item label="Телефон">+7 915 052 98 10</Descriptions.Item>
                             <Descriptions.Item label="Почта">info@santehlux-msk.ru</Descriptions.Item>
-                            <Descriptions.Item label="Address">
-                                Склад Москва г., Егорьевский проезд, д. 2а, стр. 1
+                            <Descriptions.Item label="Адрес">
+                                Склад/Офис Москва г., Егорьевский проезд, д. 2а, стр. 1
                                 Телефон: +7 915 052 98 10
                             </Descriptions.Item>
                         </Descriptions>
